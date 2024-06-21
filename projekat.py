@@ -58,11 +58,18 @@ df.rename(columns = {
     'LINK': 'Link'}, inplace = True)
 
 # Prevođenje sadržaja kolone 
+#df['Description'] = translate_column(df['Description'], src_lang='es', dest_lang='en')
+#df['Observations_Web'] = translate_column(df['Observations_Web'], src_lang='es', dest_lang='en')
 df['Description'] = translate_column(df['Description'], src_lang='ca', dest_lang='en')
 df['Observations_Web'] = translate_column(df['Observations_Web'], src_lang='ca', dest_lang='en')
 df = translate_dangerous_column(df)
 
+# Objedinjavanje dve kolone
+df['Age_Years_Total'] = df['Age_Years'] + df['Age_Months'] / 12
+
 print(df.head(5))
 print(df.dtypes)
-#%% Čuvanje prevedenog dataset-a
-df.to_csv('C:\\Users\\Korisnik\\Downloads\\actual_adopcio_en_pokusaj.csv', index=False)
+# Čuvanje prevedenog dataset-a
+df.to_csv('C:\\Users\\Korisnik\\Desktop\\anja\\MITNOP 2\\MITNOP_projekat\\actual_adopcio_en2.csv', index=False)
+
+#%% 
