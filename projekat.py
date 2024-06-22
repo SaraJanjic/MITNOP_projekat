@@ -285,7 +285,7 @@ yearly_counts = df_en.groupby(['Year', df_en['Entry_Date'].dt.month])['Entry_Dat
 years_present = sorted(df_en['Year'].unique())  # Sortiranje godina od najmanje do najveće
 
 # Vizualizacija sezonskih trendova za svaku godinu posebno
-colors = plt.cm.get_cmap('tab10', len(yearly_counts.columns))  # Boje za svaki mesec
+colors = plt.cm.get_cmap('tab10', len(yearly_counts.columns))
 
 for year in years_present:
     if year in yearly_counts.index:
